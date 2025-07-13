@@ -1,6 +1,5 @@
 -- since this is just an example spec, don't actually load anything here and return an empty spec
 -- stylua: ignore
-if true then return {} end
 
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
 --
@@ -48,7 +47,7 @@ return {
       -- stylua: ignore
       {
         "<leader>fp",
-        function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
+        function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root, hidden = true, }) end,
         desc = "Find Plugin File",
       },
     },
@@ -59,6 +58,7 @@ return {
         layout_config = { prompt_position = "top" },
         sorting_strategy = "ascending",
         winblend = 0,
+        file_ignore_patterns = {},
       },
     },
   },
@@ -72,6 +72,7 @@ return {
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         pyright = {},
+        svelte = {},
       },
     },
   },
@@ -134,6 +135,7 @@ return {
         "typescript",
         "vim",
         "yaml",
+        "cairo",
       },
     },
   },
